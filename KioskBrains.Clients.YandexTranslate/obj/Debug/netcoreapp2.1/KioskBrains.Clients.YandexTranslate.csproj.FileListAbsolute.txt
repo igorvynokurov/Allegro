@@ -1,0 +1,12 @@
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.csprojAssemblyReference.cache
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.AssemblyInfoInputs.cache
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.AssemblyInfo.cs
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.csproj.CoreCompileInputs.cache
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\bin\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.deps.json
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\bin\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.dll
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.dll
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.pdb
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.csproj.CopyComplete
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\bin\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.pdb
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.dll
+C:\AllegroSearchService\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.pdb

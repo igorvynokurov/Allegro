@@ -1,0 +1,4 @@
+C:\AllegroSearchService\AllegroSearchService.Api\obj\Debug\netcoreapp2.1\AllegroSearchService.Api.AssemblyInfoInputs.cache
+C:\AllegroSearchService\AllegroSearchService.Api\obj\Debug\netcoreapp2.1\AllegroSearchService.Api.AssemblyInfo.cs
+C:\AllegroSearchService\AllegroSearchService.Api\obj\Debug\netcoreapp2.1\AllegroSearchService.Api.csproj.CoreCompileInputs.cache
+C:\AllegroSearchService\AllegroSearchService.Api\obj\Debug\netcoreapp2.1\AllegroSearchService.Api.csprojAssemblyReference.cache

@@ -1,0 +1,9 @@
+C:\AllegroSearchService\AllegroSearchService.Common\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.deps.json
+C:\AllegroSearchService\AllegroSearchService.Common\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.dll
+C:\AllegroSearchService\AllegroSearchService.Common\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.pdb
+C:\AllegroSearchService\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.AssemblyInfoInputs.cache
+C:\AllegroSearchService\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.AssemblyInfo.cs
+C:\AllegroSearchService\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.csproj.CoreCompileInputs.cache
+C:\AllegroSearchService\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.dll
+C:\AllegroSearchService\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.pdb
+C:\AllegroSearchService\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.csprojAssemblyReference.cache

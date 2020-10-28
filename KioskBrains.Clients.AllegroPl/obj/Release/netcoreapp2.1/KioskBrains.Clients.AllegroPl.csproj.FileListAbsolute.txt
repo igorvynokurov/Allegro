@@ -1,0 +1,14 @@
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.deps.json
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.dll
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.pdb
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\AllegroSearchService.Common.dll
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.dll
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.pdb
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\AllegroSearchService.Common.pdb
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.csprojAssemblyReference.cache
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.AssemblyInfoInputs.cache
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.AssemblyInfo.cs
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.csproj.CoreCompileInputs.cache
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.csproj.CopyComplete
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.dll
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.pdb

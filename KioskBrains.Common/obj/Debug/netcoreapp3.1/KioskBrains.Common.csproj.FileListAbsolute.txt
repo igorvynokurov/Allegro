@@ -1,0 +1,8 @@
+C:\AllegroSearchService\KioskBrains.Common\bin\Debug\netcoreapp3.1\KioskBrains.Common.deps.json
+C:\AllegroSearchService\KioskBrains.Common\bin\Debug\netcoreapp3.1\KioskBrains.Common.dll
+C:\AllegroSearchService\KioskBrains.Common\bin\Debug\netcoreapp3.1\KioskBrains.Common.pdb
+C:\AllegroSearchService\KioskBrains.Common\obj\Debug\netcoreapp3.1\KioskBrains.Common.AssemblyInfoInputs.cache
+C:\AllegroSearchService\KioskBrains.Common\obj\Debug\netcoreapp3.1\KioskBrains.Common.AssemblyInfo.cs
+C:\AllegroSearchService\KioskBrains.Common\obj\Debug\netcoreapp3.1\KioskBrains.Common.csproj.CoreCompileInputs.cache
+C:\AllegroSearchService\KioskBrains.Common\obj\Debug\netcoreapp3.1\KioskBrains.Common.dll
+C:\AllegroSearchService\KioskBrains.Common\obj\Debug\netcoreapp3.1\KioskBrains.Common.pdb
