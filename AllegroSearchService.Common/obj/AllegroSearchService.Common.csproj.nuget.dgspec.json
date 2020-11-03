@@ -1,33 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\AllegroSearchService\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {}
+    "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {}
   },
   "projects": {
-    "C:\\AllegroSearchService\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
+    "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\AllegroSearchService\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
+        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
         "projectName": "AllegroSearchService.Common",
-        "projectPath": "C:\\AllegroSearchService\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
-        "packagesPath": "C:\\Users\\Igor\\.nuget\\packages\\",
-        "outputPath": "C:\\AllegroSearchService\\AllegroSearchService.Common\\obj\\",
+        "projectPath": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Allegro\\AllegroSearchService.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Igor\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://nuget.org/api/v2/": {}
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
@@ -48,6 +46,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
             }
           },
           "imports": [
@@ -60,7 +62,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

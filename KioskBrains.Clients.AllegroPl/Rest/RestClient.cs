@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AllegroSearchService.Common;
 using HtmlAgilityPack;
+using HtmlAgilityPack.CssSelectors.NetCore;
 using KioskBrains.Clients.AllegroPl.Models;
 using KioskBrains.Clients.AllegroPl.Rest.Models;
 using Newtonsoft.Json;

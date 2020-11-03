@@ -7,3 +7,12 @@ C:\AllegroSearchService\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\Alle
 C:\AllegroSearchService\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.dll
 C:\AllegroSearchService\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.pdb
 C:\AllegroSearchService\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.csprojAssemblyReference.cache
+C:\Allegro\AllegroSearchService.Common\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.deps.json
+C:\Allegro\AllegroSearchService.Common\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.dll
+C:\Allegro\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.AssemblyInfoInputs.cache
+C:\Allegro\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.AssemblyInfo.cs
+C:\Allegro\AllegroSearchService.Common\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.pdb
+C:\Allegro\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.csprojAssemblyReference.cache
+C:\Allegro\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.csproj.CoreCompileInputs.cache
+C:\Allegro\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.dll
+C:\Allegro\AllegroSearchService.Common\obj\Debug\netcoreapp2.1\AllegroSearchService.Common.pdb

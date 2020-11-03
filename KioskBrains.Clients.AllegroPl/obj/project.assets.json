@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "HtmlAgilityPack/1.11.25": {
+      "HtmlAgilityPack/1.11.26": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/HtmlAgilityPack.dll": {}
@@ -11,18 +11,16 @@
           "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         }
       },
-      "HtmlAgilityPack.CssSelectors/1.0.2": {
+      "HtmlAgilityPack.CssSelectors.NetCore/1.2.1": {
         "type": "package",
         "dependencies": {
-          "HtmlAgilityPack": "1.4.9"
+          "HtmlAgilityPack": "1.6.16"
         },
         "compile": {
-          "lib/net45/HtmlAgilityPack.CssSelectors.dll": {},
-          "lib/net45/HtmlAgilityPack.dll": {}
+          "lib/netstandard2.0/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
         },
         "runtime": {
-          "lib/net45/HtmlAgilityPack.CssSelectors.dll": {},
-          "lib/net45/HtmlAgilityPack.dll": {}
+          "lib/netstandard2.0/HtmlAgilityPack.CssSelectors.NetCore.dll": {}
         }
       },
       "Microsoft.Extensions.Configuration/2.1.0": {
@@ -515,14 +513,14 @@
     }
   },
   "libraries": {
-    "HtmlAgilityPack/1.11.25": {
-      "sha512": "UO02+QzWpKDhz2XApSZ74S+9fylNrK9npqvO4NgtW9LiFLHVRqXQmdI+1tn7JRzGnATkCCbtyIeqbJZl3pSRJQ==",
+    "HtmlAgilityPack/1.11.26": {
+      "sha512": "e0L7s+cj4MapB8hpL8sakwTSwX/cngBCcNfCT8/2v1IRXoly/hrt3FjkzGmgsjMHlO50whSGmRbDhEiUudd3tQ==",
       "type": "package",
-      "path": "htmlagilitypack/1.11.25",
+      "path": "htmlagilitypack/1.11.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "htmlagilitypack.1.11.25.nupkg.sha512",
+        "htmlagilitypack.1.11.26.nupkg.sha512",
         "htmlagilitypack.nuspec",
         "lib/Net35/HtmlAgilityPack.dll",
         "lib/Net35/HtmlAgilityPack.pdb",
@@ -563,19 +561,17 @@
         "lib/uap10.0/HtmlAgilityPack.pri"
       ]
     },
-    "HtmlAgilityPack.CssSelectors/1.0.2": {
-      "sha512": "bB4FeVvcNROENPWQfFSmPQ6q99jGk8ru5QoBB3qnEeaP451fjnqQ0uPuMgmWHAOZIXUAoOQozv/5fEEVSDyIzA==",
+    "HtmlAgilityPack.CssSelectors.NetCore/1.2.1": {
+      "sha512": "ES2Ht+wpgaLmyyyCP9cl3AT5U2BtTOCZ2pdFL8GYa27V8IAD9U77KOcuvi61k+nDE4kpU+EjwaBJepVFqLpmGA==",
       "type": "package",
-      "path": "htmlagilitypack.cssselectors/1.0.2",
+      "path": "htmlagilitypack.cssselectors.netcore/1.2.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "htmlagilitypack.cssselectors.1.0.2.nupkg.sha512",
-        "htmlagilitypack.cssselectors.nuspec",
-        "lib/net45/HtmlAgilityPack.CssSelectors.dll",
-        "lib/net45/HtmlAgilityPack.CssSelectors.pdb",
-        "lib/net45/HtmlAgilityPack.dll",
-        "lib/net45/HtmlAgilityPack.xml"
+        "htmlagilitypack.cssselectors.netcore.1.2.1.nupkg.sha512",
+        "htmlagilitypack.cssselectors.netcore.nuspec",
+        "lib/netstandard1.5/HtmlAgilityPack.CssSelectors.NetCore.dll",
+        "lib/netstandard2.0/HtmlAgilityPack.CssSelectors.NetCore.dll"
       ]
     },
     "Microsoft.Extensions.Configuration/2.1.0": {
@@ -1621,8 +1617,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "HtmlAgilityPack >= 1.11.25",
-      "HtmlAgilityPack.CssSelectors >= 1.0.2",
+      "HtmlAgilityPack >= 1.11.26",
+      "HtmlAgilityPack.CssSelectors.NetCore >= 1.2.1",
       "KioskBrains.Clients.YandexTranslate >= 1.0.0",
       "Microsoft.Extensions.Logging >= 2.1.0",
       "Microsoft.Extensions.Options >= 2.1.0",
@@ -1635,40 +1631,37 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Igor\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\AllegroSearchService\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj",
+      "projectUniqueName": "C:\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj",
       "projectName": "KioskBrains.Clients.AllegroPl",
-      "projectPath": "C:\\AllegroSearchService\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj",
-      "packagesPath": "C:\\Users\\Igor\\.nuget\\packages\\",
-      "outputPath": "C:\\AllegroSearchService\\KioskBrains.Clients.AllegroPl\\obj\\",
+      "projectPath": "C:\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Allegro\\KioskBrains.Clients.AllegroPl\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Igor\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://nuget.org/api/v2/": {}
+        "https://www.nuget.org/api/v2/": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\AllegroSearchService\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj": {
-              "projectPath": "C:\\AllegroSearchService\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj"
+            "C:\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj": {
+              "projectPath": "C:\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj"
             }
           }
         }
@@ -1684,11 +1677,11 @@
         "dependencies": {
           "HtmlAgilityPack": {
             "target": "Package",
-            "version": "[1.11.25, )"
+            "version": "[1.11.26, )"
           },
-          "HtmlAgilityPack.CssSelectors": {
+          "HtmlAgilityPack.CssSelectors.NetCore": {
             "target": "Package",
-            "version": "[1.0.2, )"
+            "version": "[1.2.1, )"
           },
           "Microsoft.Extensions.Logging": {
             "target": "Package",
@@ -1735,20 +1728,8 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'HtmlAgilityPack.CssSelectors 1.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
-      "libraryId": "HtmlAgilityPack.CssSelectors",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.1"
-      ]
-    }
-  ]
+  }
 }
