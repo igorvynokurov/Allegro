@@ -2,16 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AllegroSearchService.Data.Config;
 using KioskBrains.Clients.AllegroPl;
 using KioskBrains.Clients.YandexTranslate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace WebApplication1
 {
@@ -26,6 +29,9 @@ namespace WebApplication1
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables();
 
+            Log.Logger = new LoggerConfiguration().ReadFrom.Configuration
+            (configuration).CreateLogger();            
+
             Configuration = configBuilder.Build();
         }
 
@@ -36,8 +42,16 @@ namespace WebApplication1
         {
             services.Configure<AllegroPlClientSettings>(options => Configuration.GetSection("AllegroPlClientSettings").Bind(options));
             services.Configure<YandexTranslateClientSettings>(options => Configuration.GetSection("YandexTranslateClientSettings").Bind(options));
+
             
+
+            services.AddDbContext<SSDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
             services.AddControllers();
+            services.UpdateDatabase<SSDbContext, DbInitializer>(services.BuildServiceProvider());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

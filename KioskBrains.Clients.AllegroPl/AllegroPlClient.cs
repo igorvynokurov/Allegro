@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using AllegroSearchService.Bl.ServiceInterfaces;
 using AllegroSearchService.Common;
 using KioskBrains.Clients.AllegroPl.Models;
 using KioskBrains.Clients.AllegroPl.Rest;
@@ -29,11 +30,16 @@ namespace KioskBrains.Clients.AllegroPl
         private readonly ILogger<AllegroPlClient> _logger;
 
         private readonly RestClient _restClient;
+        private readonly ITranslateService _translateService;
+        private readonly ITokenService _tokenService;
+
+        private object _transLock = new object();
+        private ISet<String> _valuesToTranslate;
 
         public AllegroPlClient(
             IOptions<AllegroPlClientSettings> settings,
             YandexTranslateClient yandexTranslateClient,
-            ILogger<AllegroPlClient> logger)
+            ILogger<AllegroPlClient> logger, ITokenService tokenService, ITranslateService translateService)
         {
             _settings = settings.Value;
             Assure.ArgumentNotNull(_settings, nameof(_settings));
@@ -41,7 +47,12 @@ namespace KioskBrains.Clients.AllegroPl
             _yandexTranslateClient = yandexTranslateClient;
             _logger = logger;
 
-            _restClient = new RestClient(_settings.ApiClientId, _settings.ApiClientSecret);
+            
+
+            _tokenService = tokenService;
+            _translateService = translateService;
+            _restClient = new RestClient(_settings.ApiClientId, _settings.ApiClientSecret, _tokenService);
+            _valuesToTranslate = new HashSet<string>();
         }
 
         #region Search
@@ -63,16 +74,19 @@ namespace KioskBrains.Clients.AllegroPl
                 throw new NotSupportedException($"Max '{MaxPageSize}' page size is supported.");
             }
 
+
+            var arPhrase = new[] { phrase };
             if (string.IsNullOrEmpty(translatedPhrase)
                 && !string.IsNullOrEmpty(phrase))
             {
                 if (_settings.IsTranslationEnabled)
                 {
-                    translatedPhrase = await _yandexTranslateClient.TranslateAsync(
-                        phrase,
+                    var translatedPhrases = await _yandexTranslateClient.TranslateAsync(
+                        new[] { phrase },
                         Languages.RussianCode,
                         Languages.PolishCode,
                         cancellationToken);
+                     translatedPhrase = translatedPhrases[0];                    
                 }
                 else
                 {
@@ -150,19 +164,11 @@ namespace KioskBrains.Clients.AllegroPl
                 () => RequestOfferStatesAndDeliveryOptionsAsync(offers, state, cancellationToken),
                 cancellationToken);
 
-            var translateTask = Task.Run(async () =>
-                {
-                    if (_settings.IsTranslationEnabled)
-                    {
-                        // translate offer texts
-                        await TranslateNamesAsync(offers, cancellationToken);
-                    }
-                },
-                cancellationToken);
-            taskList.Add(stateAndDeliveryOptionsTask);
-            taskList.Add(translateTask);
+            AddNamesTotranslate(offers);
+            taskList.Add(stateAndDeliveryOptionsTask);            
 
             await Task.WhenAll(taskList);
+            await ApplyTranslations(offers, phrase, translatedPhrase, cancellationToken);
 
             return new SearchOffersResponse()
             {
@@ -170,6 +176,59 @@ namespace KioskBrains.Clients.AllegroPl
                 TranslatedPhrase = translatedPhrase,
                 Total = apiResponse.SearchMeta?.TotalCount ?? 0,
             };
+        }
+
+        private async Task ApplyTranslations(Offer[] offers, string sourceText, string destText, CancellationToken cancellationToken)
+        {
+            var dict = _translateService.GetDictionary(_valuesToTranslate);
+
+            
+            var translatedTexts = dict.Select(x => x.Key).ToList();
+
+            var forYandex = _valuesToTranslate.Where(x => !translatedTexts.Contains(x.ToLower())).ToArray();
+            var yandexTranslated = await _yandexTranslateClient.TranslateAsync(forYandex, Languages.PolishCode.ToLower(), Languages.RussianCode.ToLower(), cancellationToken);
+
+            var yandexList = from f in forYandex
+                             join y in yandexTranslated
+                             on Array.IndexOf(forYandex,f) equals Array.IndexOf(yandexTranslated, y)
+                             select new { Key = f, Value = y };
+            var yandexDict = yandexList.ToDictionary(x => x.Key.ToLower(), x => x.Value);
+
+            if (!yandexDict.ContainsKey(sourceText.ToLower()))
+            {
+                yandexDict.Add(sourceText.ToLower(), destText);
+            }
+
+            await _translateService.AddRecords(yandexDict, Languages.PolishCode, Languages.RussianCode, Guid.NewGuid());
+
+            foreach (var o in offers)
+            {
+                var state = o.Parameters.FirstOrDefault(x => x.Name[Languages.PolishCode].ToLower() == "stan");
+                if (state != null)
+                {
+                    o.State = RestClient.StatesByNames.ContainsKey(state.Value[Languages.PolishCode].ToLower()) ? RestClient.StatesByNames[state.Value[Languages.PolishCode].ToLower()] : o.State;
+                }
+                o.Name[Languages.RussianCode] = GetSafeValFromDictionary(dict, yandexDict, o.Name[Languages.PolishCode]);
+                o.Description[Languages.RussianCode] = GetSafeValFromDictionary(dict, yandexDict, o.Description[Languages.PolishCode]);
+                foreach(var p in o.Parameters)
+                {
+                    p.Name[Languages.RussianCode] = GetSafeValFromDictionary(dict, yandexDict, p.Name[Languages.PolishCode]);
+                    p.Value[Languages.RussianCode] = GetSafeValFromDictionary(dict, yandexDict,  p.Value[Languages.PolishCode]);
+                }
+            }
+        }
+
+        private string GetSafeValFromDictionary(IDictionary<string,string> dict1, IDictionary<string, string> dict2, string val)
+        {
+            if (dict1.ContainsKey(val.ToLower()))
+            {
+                return dict1[val.ToLower()];
+            }
+            if (dict2.ContainsKey(val.ToLower()))
+            {
+                return dict2[val.ToLower()];
+            }
+            return _valuesToTranslate.FirstOrDefault(x=>x.ToLower()== val) ?? val;
         }
 
         private const string StateAttributeName = "Stan";
@@ -278,25 +337,21 @@ namespace KioskBrains.Clients.AllegroPl
             return shipmentId < 100 || shipmentId > 200;
         }
 
-        private async Task TranslateNamesAsync(Offer[] offers, CancellationToken cancellationToken)
+        private void AddNamesTotranslate(Offer[] offers)
         {
             try
-            {
-                var texts = offers
-                    .Select(x => x.Name.GetValue(Languages.PolishCode))
-                    .ToArray();
-
-                var translatedTexts = await _yandexTranslateClient.TranslateAsync(
-                    texts,
-                    Languages.PolishCode,
-                    Languages.RussianCode,
-                    cancellationToken);
-               
-
+            { 
                 for (var i = 0; i < offers.Length; i++)
                 {
                     var offer = offers[i];
-                    offer.Name[Languages.RussianCode] = translatedTexts[i];
+                    lock(_transLock)
+                    {
+                        if (!_valuesToTranslate.Contains(offer.Name[Languages.PolishCode]))
+                        {
+                            _valuesToTranslate.Add(offer.Name[Languages.PolishCode]);
+                        }
+                    }
+                    //offer.Name[Languages.RussianCode] = await TranslateLocalAsync(offer.Name[Languages.PolishCode], cancellationToken);
                 }
             }
             catch (Exception ex)
@@ -323,6 +378,32 @@ namespace KioskBrains.Clients.AllegroPl
             }
             return new string[0];
         }
+
+        private async Task<string> TranslateLocalAsync(string text, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var arr = new List<string>();                
+                var x = await _translateService.GetTranslatedText(text,
+                Languages.PolishCode,
+                Languages.RussianCode);
+                if (String.IsNullOrEmpty(x))
+                {
+                    x = await _yandexTranslateClient.TranslateAsync(
+                        text,
+                        Languages.PolishCode,
+                        Languages.RussianCode,
+                        cancellationToken);
+                        //await _translateService.AddRecord(text, x, Languages.PolishCode, Languages.RussianCode, Guid.NewGuid());                            
+                }
+                return x;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Offer names translation failed.", ex);
+                return "";
+            }            
+        }
         #endregion
 
         #region Description
@@ -332,10 +413,9 @@ namespace KioskBrains.Clients.AllegroPl
             OfferExtraData data = null;
             try
             {
-                data = _restClient.GetExtraDataPoland(offer.Id);
+                data = await Task<OfferExtraData>.Run(() => _restClient.GetExtraDataPoland(offer.Id));
                 data.Description[Languages.RussianCode] =
                 data.Description[Languages.PolishCode] = ConvertDescriptionHtmlToText(data.Description[Languages.PolishCode]);
-
                 offer.Description = data.Description;
                 offer.Parameters = data.Parameters;
             }
@@ -346,7 +426,29 @@ namespace KioskBrains.Clients.AllegroPl
             }
             if (_settings.IsTranslationEnabled)
             {
-                await TranslateExtraData(offer, data, cancellationToken);
+                AddExtraDataToTranslate(data);
+            }
+        }
+
+        private void AddExtraDataToTranslate(OfferExtraData data)
+        {
+            lock (_transLock)
+            {
+                if (!_valuesToTranslate.Contains(data.Description[Languages.PolishCode]))
+                {
+                    _valuesToTranslate.Add(data.Description[Languages.PolishCode]);
+                }
+                foreach (var p in data.Parameters)
+                {
+                    if (!_valuesToTranslate.Contains(p.Name[Languages.RussianCode]))
+                    {
+                        _valuesToTranslate.Add(p.Name[Languages.RussianCode]);
+                    }
+                    if (!_valuesToTranslate.Contains(p.Value[Languages.RussianCode]))
+                    {
+                        _valuesToTranslate.Add(p.Value[Languages.RussianCode]);
+                    }
+                }
             }
         }
 
@@ -354,33 +456,17 @@ namespace KioskBrains.Clients.AllegroPl
         {            
             try
             {
-                var ruDescription = await _yandexTranslateClient.TranslateAsync(
+                var ruDescription = await TranslateLocalAsync(
                     data.Description[Languages.PolishCode],
-                    Languages.PolishCode,
-                    Languages.RussianCode,
                     cancellationToken);
-
-                data.Description[Languages.RussianCode] = ruDescription;
-
-                var arrParamsNames = data.Parameters.Select(x => x.Name[Languages.PolishCode]).ToArray();
-                var arrParamsNamesTrans = await TranslateArrAsync(arrParamsNames, cancellationToken);
-
-                var arrParamsValues = data.Parameters.Select(x => x.Value[Languages.PolishCode]).ToArray();
-                var arrParamsValuesTrans = await TranslateArrAsync(arrParamsValues, cancellationToken);
-
-                if (data.Parameters.Count() == arrParamsNames.Count() && data.Parameters.Count() == arrParamsValues.Count())
+                data.Description[Languages.RussianCode] = ruDescription;                
+                foreach (var p in data.Parameters)
                 {
-                    var i = 0;
-                    foreach (var p in data.Parameters)
-                    {
-                        p.Name[Languages.RussianCode] = arrParamsNamesTrans[i];
-                        p.Value[Languages.RussianCode] = arrParamsValuesTrans[i];
-                        i++;
-                    }
-                }
+                    p.Name[Languages.RussianCode] = await TranslateLocalAsync(p.Name[Languages.PolishCode], cancellationToken);
+                    p.Value[Languages.RussianCode] = await TranslateLocalAsync(p.Value[Languages.PolishCode], cancellationToken);
+                }                
                 offer.Description = data.Description;
                 offer.Parameters = data.Parameters;
-
             }
             catch (Exception ex)
             {
@@ -450,10 +536,10 @@ namespace KioskBrains.Clients.AllegroPl
 
             // remove first space in line
             html = html
-                .Replace("\n ", "\n")
+                .Replace("\n ", "\n").Replace("&amp;", "&")
                 .Trim();
 
-            return html;
+            return html.Length > 450 ? html.Substring(0, 447) + "..." : html;
         }
 
         #endregion

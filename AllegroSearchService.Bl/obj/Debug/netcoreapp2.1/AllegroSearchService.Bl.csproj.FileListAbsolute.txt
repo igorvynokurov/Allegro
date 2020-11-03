@@ -1,0 +1,14 @@
+C:\AllegroSearchService\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.csprojAssemblyReference.cache
+C:\AllegroSearchService\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.AssemblyInfoInputs.cache
+C:\AllegroSearchService\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.AssemblyInfo.cs
+C:\AllegroSearchService\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.csproj.CoreCompileInputs.cache
+C:\AllegroSearchService\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Bl.deps.json
+C:\AllegroSearchService\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Bl.dll
+C:\AllegroSearchService\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Bl.pdb
+C:\AllegroSearchService\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.dll
+C:\AllegroSearchService\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.dll
+C:\AllegroSearchService\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.pdb
+C:\AllegroSearchService\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.pdb
+C:\AllegroSearchService\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.csproj.CopyComplete
+C:\AllegroSearchService\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.dll
+C:\AllegroSearchService\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.pdb

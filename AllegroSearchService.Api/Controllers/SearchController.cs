@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AllegroSearchService.Bl.ServiceInterfaces;
 using KioskBrains.Clients.AllegroPl;
 using KioskBrains.Clients.AllegroPl.Models;
 using KioskBrains.Clients.YandexTranslate;
@@ -23,14 +24,23 @@ namespace AllegroSearchService.Api.Controllers
         private IOptions<YandexTranslateClientSettings> _yandexSettings;
         private AllegroPlClient _client;
         private CancellationTokenSource _tokenSource;
-        public SearchController(ILogger<AllegroPlClient> logger, IOptions<AllegroPlClientSettings> settings, IOptions<YandexTranslateClientSettings> yandexApiClientSettings)
+        public SearchController(ILogger<AllegroPlClient> logger, 
+            IOptions<AllegroPlClientSettings> settings, 
+            IOptions<YandexTranslateClientSettings> yandexApiClientSettings,
+            ITokenService tokenService,
+            ITranslateService translateService)
         {
             _logger = logger;
             _settings = settings;
             _yandexSettings = yandexApiClientSettings;
-            _client = new AllegroPlClient(settings, new YandexTranslateClient(yandexApiClientSettings), logger);
+            _client = new AllegroPlClient(
+                settings, 
+                new YandexTranslateClient(yandexApiClientSettings, tokenService), 
+                logger,
+                tokenService,
+                translateService);
         }
-
+        
 
         // GET: api/<SearchController>
         [HttpGet]
@@ -42,10 +52,22 @@ namespace AllegroSearchService.Api.Controllers
             int offset,
             int limit)
         {
-            _tokenSource = new CancellationTokenSource();
-            var token = _tokenSource.Token;
-            var res = _client.SearchOffersAsync(phrase, translatedPhrase, categoryId, state, sorting, offset, limit, token).Result;
-            return res;
+            try
+            {
+                _tokenSource = new CancellationTokenSource();
+                var token = _tokenSource.Token;
+                var res = _client.SearchOffersAsync(phrase, translatedPhrase, categoryId, state, sorting, offset, limit, token).Result;
+                return res;
+            }
+            catch(Exception er)
+            {
+                throw;
+            }
+            finally
+            {
+                _tokenSource.Dispose();
+            }
+            
         }
 
         // GET api/<SearchController>/Cancel
