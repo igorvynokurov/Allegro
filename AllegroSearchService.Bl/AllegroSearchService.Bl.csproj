@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AllegroSearchService.Common\AllegroSearchService.Common.csproj" />
+    <ProjectReference Include="..\AllegroSearchService.Data\AllegroSearchService.Data.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioskBrains.Clients.Allegro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioskBrains.Clients.YandexTranslate", "KioskBrains.Clients.YandexTranslate\KioskBrains.Clients.YandexTranslate.csproj", "{6000BFCB-337C-4BA8-BAD8-8EB1ED90D855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllegroSearchService.Common", "AllegroSearchService.Common\AllegroSearchService.Common.csproj", "{EC51BAB5-3A35-46B2-953F-E1A80841267E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllegroSearchService.Common", "AllegroSearchService.Common\AllegroSearchService.Common.csproj", "{EC51BAB5-3A35-46B2-953F-E1A80841267E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllegroSearchService.Data", "AllegroSearchService.Data\AllegroSearchService.Data.csproj", "{8AE3AD65-04E1-4BE6-A733-8842D9EFAE11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllegroSearchService.Bl", "AllegroSearchService.Bl\AllegroSearchService.Bl.csproj", "{748ECDA6-A4F4-497F-8716-9935670E803C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{EC51BAB5-3A35-46B2-953F-E1A80841267E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC51BAB5-3A35-46B2-953F-E1A80841267E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC51BAB5-3A35-46B2-953F-E1A80841267E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE3AD65-04E1-4BE6-A733-8842D9EFAE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE3AD65-04E1-4BE6-A733-8842D9EFAE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE3AD65-04E1-4BE6-A733-8842D9EFAE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE3AD65-04E1-4BE6-A733-8842D9EFAE11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{748ECDA6-A4F4-497F-8716-9935670E803C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{748ECDA6-A4F4-497F-8716-9935670E803C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{748ECDA6-A4F4-497F-8716-9935670E803C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{748ECDA6-A4F4-497F-8716-9935670E803C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

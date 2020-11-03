@@ -11,6 +11,9 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AllegroSearchService.Api.Automapper;
 using System.IO;
+using static AllegroSearchService.Api.Automapper.AutofacModule;
+using AllegroSearchService.Data.Config;
+using Serilog;
 
 namespace WebApplication1
 {
@@ -18,7 +21,7 @@ namespace WebApplication1
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args)
+            var host = CreateHostBuilder(args).UseSerilog()
             .Build();
             host.Run();
         }
@@ -29,12 +32,12 @@ namespace WebApplication1
             .UseServiceProviderFactory(new AutofacServiceProviderFactory())
                 .ConfigureContainer<ContainerBuilder>((context, containerBuilder) =>
                 {
-                    containerBuilder.RegisterModule<AutofacModule>();                    
+                    containerBuilder.RegisterModule<AutofacModule>();
+                    //containerBuilder.RegisterModule(new IntegrationEventsAutofacModule<MessageBusListener>(context.Configuration));
+                    containerBuilder.RegisterModule(new DataAccessEventsAutofacModule<SSDbContext>());
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
-                {                    
-                    webBuilder.UseContentRoot(Directory.GetCurrentDirectory());
-                    webBuilder.UseIISIntegration();
+                { 
                     webBuilder.UseStartup<Startup>();
                 });
     }

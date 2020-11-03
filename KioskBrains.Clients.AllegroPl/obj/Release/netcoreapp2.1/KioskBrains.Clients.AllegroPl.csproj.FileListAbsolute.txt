@@ -12,3 +12,7 @@ C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\
 C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.csproj.CopyComplete
 C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.dll
 C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\obj\Release\netcoreapp2.1\KioskBrains.Clients.AllegroPl.pdb
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\AllegroSearchService.Bl.dll
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\AllegroSearchService.Data.dll
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\AllegroSearchService.Bl.pdb
+C:\AllegroSearchService\KioskBrains.Clients.AllegroPl\bin\Release\netcoreapp2.1\AllegroSearchService.Data.pdb

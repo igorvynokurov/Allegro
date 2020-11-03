@@ -5,8 +5,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AllegroSearchService.Bl.ServiceInterfaces;
 using AllegroSearchService.Common;
+using AllegroSearchService.Data.Entity;
 using HtmlAgilityPack;
+using HtmlAgilityPack.CssSelectors.NetCore;
 using KioskBrains.Clients.AllegroPl.Models;
 using KioskBrains.Clients.AllegroPl.Rest.Models;
 using Newtonsoft.Json;
@@ -19,27 +22,41 @@ namespace KioskBrains.Clients.AllegroPl.Rest
     /// </summary>
     internal class RestClient
     {
-        public RestClient(string clientId, string clientSecret)
+        //todo add all
+        public static IDictionary<string, OfferStateEnum> StatesByNames => new Dictionary<string, OfferStateEnum>()
+        {
+            {"nowy", OfferStateEnum.New },
+            {"używany", OfferStateEnum.Used },
+        };
+        public RestClient(string clientId, string clientSecret, ITokenService tokenService)
         {
             Assure.ArgumentNotNull(clientId, nameof(clientId));
             Assure.ArgumentNotNull(clientSecret, nameof(clientSecret));
-
+            _tokenService = tokenService;
             _clientToken = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{clientId}:{clientSecret}"));
         }
-
+        
         #region Authentication
 
         private readonly string _clientToken;
 
-        private string _accessToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJhbGxlZ3JvOmFwaTpvcmRlcnM6cmVhZCIsImFsbGVncm86YXBpOnByb2ZpbGU6d3JpdGUiLCJhbGxlZ3JvOmFwaTpzYWxlOm9mZmVyczp3cml0ZSIsImFsbGVncm86YXBpOmJpbGxpbmc6cmVhZCIsImFsbGVncm86YXBpOmNhbXBhaWducyIsImFsbGVncm86YXBpOmRpc3B1dGVzIiwiYWxsZWdybzphcGk6c2FsZTpvZmZlcnM6cmVhZCIsImFsbGVncm86YXBpOmJpZHMiLCJhbGxlZ3JvOmFwaTpvcmRlcnM6d3JpdGUiLCJhbGxlZ3JvOmFwaTphZHMiLCJhbGxlZ3JvOmFwaTpwYXltZW50czp3cml0ZSIsImFsbGVncm86YXBpOnNhbGU6c2V0dGluZ3M6d3JpdGUiLCJhbGxlZ3JvOmFwaTpwcm9maWxlOnJlYWQiLCJhbGxlZ3JvOmFwaTpyYXRpbmdzIiwiYWxsZWdybzphcGk6c2FsZTpzZXR0aW5nczpyZWFkIiwiYWxsZWdybzphcGk6cGF5bWVudHM6cmVhZCJdLCJhbGxlZ3JvX2FwaSI6dHJ1ZSwiZXhwIjoxNjA0MDI3NzE0LCJqdGkiOiJkNGVkZDQ4NS1lOTZiLTRjNGYtOGYyOC1jMTM1NzQwZTIzNmYiLCJjbGllbnRfaWQiOiJmODVkNmY0MTMyMDE0ODRmYmMxZmMwMDhiMWYwNDAzZCJ9.HSaSDvmIhsvrqu8G39kuRg20wukFiHxd8o63xfr-FvT0YfIw94on0t4dzXYv5V5oOBVFOoLCTjx6PbPIwZrMkzP71H6EA1eIMA1Trt5h85Q3-AeQtFLcpjOaWH6ZDBn79cMIZPqds4sqYmjBmU2F_nhw-6-uRvF9a67eB7I_t0gpRy57urC4na-yZxbUv6RuZiFhWIBLqXgVAmvm6uL2yfuQitVKW6oyc-17gIVitgUSSnidtZnVIN5iWY13CFBeEvR_6ncL95Ca7mxt_Nmb8m8UyjBFyizLrUccsG-RDKXYU7csoEOdhR4VavUxTmRfQ43SHVog7hE2p16MEB5ibQ";
+        private string _accessToken;
 
         private readonly object _authRequestLocker = new object();
 
         private bool _isAuthRequestInProgress;
+        private ITokenService _tokenService;
 
         private async Task EnsureAuthSessionAsync(CancellationToken cancellationToken)
         {
             var now = DateTime.Now;
+
+            if (_accessToken == null)
+            {
+               var t = await _tokenService.GetToken(TokenType.Allegro);
+                _accessTokenTime = t == null ? null : t.ModifiedDate ?? null;
+                _accessToken = t == null ? null : t.Token;
+            }
 
             if (!IsAuthSessionExpired(now))
             {
@@ -111,7 +128,7 @@ namespace KioskBrains.Clients.AllegroPl.Rest
                 {
                     throw new AllegroPlRequestException("Bad format of auth API response.", ex);
                 }
-
+                await _tokenService.SetToken(accessToken, TokenType.Allegro, Guid.NewGuid());
                 _accessToken = accessToken;
                 _accessTokenTime = now;
             }
@@ -124,7 +141,7 @@ namespace KioskBrains.Clients.AllegroPl.Rest
             }
         }
 
-        private DateTime? _accessTokenTime = DateTime.Now;
+        private DateTime? _accessTokenTime;
 
         private static readonly TimeSpan AccessTokenDuration = TimeSpan.FromHours(6);
 
