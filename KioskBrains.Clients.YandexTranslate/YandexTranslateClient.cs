@@ -29,6 +29,7 @@ namespace KioskBrains.Clients.YandexTranslate
             string toLanguageCode,
             CancellationToken cancellationToken)
         {
+            return "RUS";
             if (string.IsNullOrEmpty(text))
             {
                 return text;

@@ -1,6 +1,7 @@
 ﻿
 
 using AllegroSearchService.Common;
+using System.Collections.Generic;
 
 namespace KioskBrains.Clients.AllegroPl.Models
 {
@@ -20,10 +21,12 @@ namespace KioskBrains.Clients.AllegroPl.Models
 
         public MultiLanguageString Description { get; set; }
 
+        public IList<OfferParameter> Parameters { get; set; }
+
         public OfferImage[] Images { get; set; }
 
         public DeliveryOption[] DeliveryOptions { get; set; }
 
-        public OfferExtraData ExtraData { get; set; }
+        
     }    
 }

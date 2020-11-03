@@ -31,7 +31,7 @@ namespace KioskBrains.Clients.AllegroPl.Rest
 
         private readonly string _clientToken;
 
-        private string _accessToken;
+        private string _accessToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJhbGxlZ3JvOmFwaTpvcmRlcnM6cmVhZCIsImFsbGVncm86YXBpOnByb2ZpbGU6d3JpdGUiLCJhbGxlZ3JvOmFwaTpzYWxlOm9mZmVyczp3cml0ZSIsImFsbGVncm86YXBpOmJpbGxpbmc6cmVhZCIsImFsbGVncm86YXBpOmNhbXBhaWducyIsImFsbGVncm86YXBpOmRpc3B1dGVzIiwiYWxsZWdybzphcGk6c2FsZTpvZmZlcnM6cmVhZCIsImFsbGVncm86YXBpOmJpZHMiLCJhbGxlZ3JvOmFwaTpvcmRlcnM6d3JpdGUiLCJhbGxlZ3JvOmFwaTphZHMiLCJhbGxlZ3JvOmFwaTpwYXltZW50czp3cml0ZSIsImFsbGVncm86YXBpOnNhbGU6c2V0dGluZ3M6d3JpdGUiLCJhbGxlZ3JvOmFwaTpwcm9maWxlOnJlYWQiLCJhbGxlZ3JvOmFwaTpyYXRpbmdzIiwiYWxsZWdybzphcGk6c2FsZTpzZXR0aW5nczpyZWFkIiwiYWxsZWdybzphcGk6cGF5bWVudHM6cmVhZCJdLCJhbGxlZ3JvX2FwaSI6dHJ1ZSwiZXhwIjoxNjA0MDI3NzE0LCJqdGkiOiJkNGVkZDQ4NS1lOTZiLTRjNGYtOGYyOC1jMTM1NzQwZTIzNmYiLCJjbGllbnRfaWQiOiJmODVkNmY0MTMyMDE0ODRmYmMxZmMwMDhiMWYwNDAzZCJ9.HSaSDvmIhsvrqu8G39kuRg20wukFiHxd8o63xfr-FvT0YfIw94on0t4dzXYv5V5oOBVFOoLCTjx6PbPIwZrMkzP71H6EA1eIMA1Trt5h85Q3-AeQtFLcpjOaWH6ZDBn79cMIZPqds4sqYmjBmU2F_nhw-6-uRvF9a67eB7I_t0gpRy57urC4na-yZxbUv6RuZiFhWIBLqXgVAmvm6uL2yfuQitVKW6oyc-17gIVitgUSSnidtZnVIN5iWY13CFBeEvR_6ncL95Ca7mxt_Nmb8m8UyjBFyizLrUccsG-RDKXYU7csoEOdhR4VavUxTmRfQ43SHVog7hE2p16MEB5ibQ";
 
         private readonly object _authRequestLocker = new object();
 
@@ -124,7 +124,7 @@ namespace KioskBrains.Clients.AllegroPl.Rest
             }
         }
 
-        private DateTime? _accessTokenTime;
+        private DateTime? _accessTokenTime = DateTime.Now;
 
         private static readonly TimeSpan AccessTokenDuration = TimeSpan.FromHours(6);
 
@@ -281,7 +281,7 @@ namespace KioskBrains.Clients.AllegroPl.Rest
             return response;
         }
 
-        public OfferExtraData GetExtraData(string id, CancellationToken cancellationToken)
+        public OfferExtraData GetExtraDataPoland(string id)
         {
             try
             {
@@ -303,6 +303,11 @@ namespace KioskBrains.Clients.AllegroPl.Rest
 
                 var liParams = doc.DocumentNode.QuerySelectorAll("div[data-box-name='Parameters'] li div._f8818_3-1jj");
 
+                if (!liParams.Any() && !divsDesc.Any())
+                {
+                    throw new AllegroPlRequestException("Error read https://allegro.pl/oferta/ no description and params found" + id);
+                }
+
                 var divParamsInit = liParams.Select(x => x.QuerySelectorAll("div").FirstOrDefault());
                 var lineParamsDest = divParamsInit.Where(x => x != null && x.InnerText.Contains(":")).Select(x => x.InnerText).ToList();
 
@@ -312,22 +317,23 @@ namespace KioskBrains.Clients.AllegroPl.Rest
                 var descMulti = new MultiLanguageString()
                 {
                     [Languages.PolishCode] = desc,
+                    [Languages.RussianCode] = desc
                 };
 
                 return new OfferExtraData()
-                {
+                {                    
                     Description = descMulti,
                     Parameters = parameters
                 };
             }
-            catch(Exception er)
+            catch (AllegroPlRequestException)
             {
-                return new OfferExtraData()
-                {
-                    Description = new MultiLanguageString() { [Languages.PolishCode] = "" },
-                    Parameters = new List<OfferParameter>()
-                };
+                throw;
             }
+            catch (Exception ex)
+            {
+                throw new AllegroPlRequestException($"Request to https://allegro.pl/oferta failed", ex);
+            }            
         } 
         
         private OfferParameter GetParameterFromLine(string line)
@@ -338,11 +344,13 @@ namespace KioskBrains.Clients.AllegroPl.Rest
                 {
                     Name = new MultiLanguageString()
                     {
-                        [Languages.PolishCode] = line.Split(':')[0].Trim()
+                        [Languages.PolishCode] = line.Split(':')[0].Trim(),
+                        [Languages.RussianCode] = line.Split(':')[0].Trim()
                     },
                     Value = new MultiLanguageString()
                     {
-                        [Languages.PolishCode] = line.Split(':')[1].Trim()
+                        [Languages.PolishCode] = line.Split(':')[1].Trim(),
+                        [Languages.RussianCode] = line.Split(':')[1].Trim()
                     }
                 };
             }

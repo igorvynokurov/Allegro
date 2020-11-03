@@ -134,12 +134,18 @@ namespace KioskBrains.Clients.AllegroPl
                 })
                 .ToArray();
 
-            foreach(var o in offers)
-            {
-                Thread.Sleep(10);
-                o.ExtraData = _restClient.GetExtraData(o.Id, cancellationToken);
-            }
+            
 
+            List<Task> taskList = new List<Task>();
+
+            foreach (var o in offers)
+            {
+                //Thread.Sleep(10);
+                taskList.Add(Task.Run(async () =>                
+                    await SetOfferExtraDataAsync(o, cancellationToken)               
+                ));
+            }
+            
             var stateAndDeliveryOptionsTask = Task.Run(
                 () => RequestOfferStatesAndDeliveryOptionsAsync(offers, state, cancellationToken),
                 cancellationToken);
@@ -153,8 +159,10 @@ namespace KioskBrains.Clients.AllegroPl
                     }
                 },
                 cancellationToken);
+            taskList.Add(stateAndDeliveryOptionsTask);
+            taskList.Add(translateTask);
 
-            await Task.WhenAll(stateAndDeliveryOptionsTask, translateTask);
+            await Task.WhenAll(taskList);
 
             return new SearchOffersResponse()
             {
@@ -297,134 +305,87 @@ namespace KioskBrains.Clients.AllegroPl
             }
         }
 
+        private async Task<string[]> TranslateArrAsync(string[] texts, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var translatedTexts = await _yandexTranslateClient.TranslateAsync(
+                    texts,
+                    Languages.PolishCode,
+                    Languages.RussianCode,
+                    cancellationToken);
 
-        
-        
-
+                return translatedTexts;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Offer names translation failed.", ex);
+            }
+            return new string[0];
+        }
         #endregion
 
         #region Description
 
-        public async Task<MultiLanguageString> GetOfferDescriptionAsync(string offerId, CancellationToken cancellationToken)
+        private async Task SetOfferExtraDataAsync(Offer offer, CancellationToken cancellationToken)
         {
-            //if (string.IsNullOrEmpty(offerId)
-            //    || !long.TryParse(offerId, out var offerIdValue))
-            //{
-            //    return null;
-            //}
-
-            //var infoResponse = await _soapClient.GetItemsInfoAsync(
-            //    new[] { offerIdValue },
-            //    includeAttributes: true,
-            //    includeDeliveryOptions: false,
-            //    includeDescription: true,
-            //    cancellationToken: cancellationToken);
-
-            //var infoRecord = infoResponse.arrayItemListInfo?.FirstOrDefault();
-            //if (infoRecord == null)
-            //{
-            //    return null;
-            //}
-
-            //var descriptionBuilder = new StringBuilder();
-
-            //// attributes first (except State)
-            //if (infoRecord.itemAttribs?.Length > 0)
-            //{
-            //    var attributeDescriptions = new List<string>();
-            //    foreach (var attributeRecord in infoRecord.itemAttribs)
-            //    {
-            //        if (attributeRecord.attribName.Equals(StateAttributeName, StringComparison.OrdinalIgnoreCase))
-            //        {
-            //            // state
-            //            continue;
-            //        }
-
-            //        var attributeValues = attributeRecord.attribValues
-            //            ?.Where(x => !string.IsNullOrEmpty(x))
-            //            .ToArray();
-            //        if (attributeValues?.Length > 0)
-            //        {
-            //            attributeDescriptions.Add($"{attributeRecord.attribName}: {string.Join(", ", attributeValues)}");
-            //        }
-            //    }
-
-            //    if (attributeDescriptions.Count > 0)
-            //    {
-            //        descriptionBuilder.AppendLine(string.Join("; ", attributeDescriptions));
-            //    }
-            //}
-
-            //// description text sections
-            //var descriptionSectionsJson = infoRecord.itemInfo?.itStandardizedDescription;
-            //if (!string.IsNullOrEmpty(descriptionSectionsJson))
-            //{
-            //    try
-            //    {
-            //        var descriptionSections = JsonConvert.DeserializeObject<DescriptionSections>(descriptionSectionsJson);
-            //        var descriptionSectionItems = descriptionSections
-            //                                          ?.Sections
-            //                                          ?.SelectMany(x => x.Items ?? new DescriptionSectionItem[0])
-            //                                          .ToArray()
-            //                                      ?? new DescriptionSectionItem[0];
-            //        foreach (var descriptionSectionItem in descriptionSectionItems)
-            //        {
-            //            if (descriptionSectionItem.Type?.Equals("TEXT", StringComparison.OrdinalIgnoreCase) != true)
-            //            {
-            //                // only text items
-            //                continue;
-            //            }
-
-            //            if (string.IsNullOrEmpty(descriptionSectionItem.Content))
-            //            {
-            //                continue;
-            //            }
-
-            //            var contentText = ConvertDescriptionHtmlToText(descriptionSectionItem.Content);
-            //            if (!string.IsNullOrEmpty(contentText))
-            //            {
-            //                descriptionBuilder.AppendLine(contentText);
-            //            }
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        _logger.LogError(LoggingEvents.ResponseProcessingError, $"Offer '{offerId}' bad description format.", ex);
-            //    }
-            //}
-
-            //var plDescription = descriptionBuilder
-            //    .ToString()
-            //    .Trim();
-
-            var description = new MultiLanguageString()
+            OfferExtraData data = null;
+            try
             {
-                // WORKAROUND! since WebAPI with attributes was disabled:
-                // - description is disabled
-                [Languages.PolishCode] = null,
-                //[Languages.PolishCode] = plDescription,
-            };
+                data = _restClient.GetExtraDataPoland(offer.Id);
+                data.Description[Languages.RussianCode] =
+                data.Description[Languages.PolishCode] = ConvertDescriptionHtmlToText(data.Description[Languages.PolishCode]);
 
-            // DISABLED TO SAVE MONEY
-            //if (_settings.IsTranslationEnabled)
-            //{
-            //    try
-            //    {
-            //        var ruDescription = await _yandexTranslateClient.TranslateAsync(
-            //            plDescription,
-            //            Languages.PolishCode,
-            //            Languages.RussianCode,
-            //            cancellationToken);
+                offer.Description = data.Description;
+                offer.Parameters = data.Parameters;
+            }
+            catch (Exception er)
+            {
+                _logger.LogError($"Offer '{offer.Id}' get extradata failed.", er);
+                return;
+            }
+            if (_settings.IsTranslationEnabled)
+            {
+                await TranslateExtraData(offer, data, cancellationToken);
+            }
+        }
 
-            //        description[Languages.RussianCode] = ruDescription;
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        _logger.LogError(LoggingEvents.ExternalApiError, $"Offer '{offerId}' description translation failed.", ex);
-            //    }
-            //}
+        private async Task TranslateExtraData(Offer offer, OfferExtraData data, CancellationToken cancellationToken)
+        {            
+            try
+            {
+                var ruDescription = await _yandexTranslateClient.TranslateAsync(
+                    data.Description[Languages.PolishCode],
+                    Languages.PolishCode,
+                    Languages.RussianCode,
+                    cancellationToken);
 
-            return description;
+                data.Description[Languages.RussianCode] = ruDescription;
+
+                var arrParamsNames = data.Parameters.Select(x => x.Name[Languages.PolishCode]).ToArray();
+                var arrParamsNamesTrans = await TranslateArrAsync(arrParamsNames, cancellationToken);
+
+                var arrParamsValues = data.Parameters.Select(x => x.Value[Languages.PolishCode]).ToArray();
+                var arrParamsValuesTrans = await TranslateArrAsync(arrParamsValues, cancellationToken);
+
+                if (data.Parameters.Count() == arrParamsNames.Count() && data.Parameters.Count() == arrParamsValues.Count())
+                {
+                    var i = 0;
+                    foreach (var p in data.Parameters)
+                    {
+                        p.Name[Languages.RussianCode] = arrParamsNamesTrans[i];
+                        p.Value[Languages.RussianCode] = arrParamsValuesTrans[i];
+                        i++;
+                    }
+                }
+                offer.Description = data.Description;
+                offer.Parameters = data.Parameters;
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Offer '{offer.Id}' description translation failed.", ex);
+            }            
         }
 
         #endregion
