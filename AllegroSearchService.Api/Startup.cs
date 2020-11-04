@@ -43,8 +43,8 @@ namespace WebApplication1
             services.Configure<AllegroPlClientSettings>(options => Configuration.GetSection("AllegroPlClientSettings").Bind(options));
             services.Configure<YandexTranslateClientSettings>(options => Configuration.GetSection("YandexTranslateClientSettings").Bind(options));
 
-            
 
+            services.AddMvc();
             services.AddDbContext<SSDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));

@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj": {}
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj": {}
   },
   "projects": {
-    "C:\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj",
         "projectName": "AllegroSearchService.LoadTranslations",
-        "projectPath": "C:\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\AllegroSearchService.LoadTranslations\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.LoadTranslations\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -40,12 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.1.9, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

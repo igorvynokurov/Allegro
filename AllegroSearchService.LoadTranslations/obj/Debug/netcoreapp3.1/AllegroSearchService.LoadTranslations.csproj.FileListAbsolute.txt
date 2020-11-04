@@ -1,3 +1,16 @@
 C:\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.csprojAssemblyReference.cache
 C:\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.AssemblyInfoInputs.cache
 C:\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.AssemblyInfo.cs
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\bin\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.exe
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\bin\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.deps.json
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\bin\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.runtimeconfig.json
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\bin\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.runtimeconfig.dev.json
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\bin\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.dll
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\bin\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.pdb
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.csprojAssemblyReference.cache
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.AssemblyInfoInputs.cache
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.AssemblyInfo.cs
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.dll
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.pdb
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.genruntimeconfig.cache

@@ -22,3 +22,14 @@ C:\Allegro\AllegroSearchService.Data\bin\Debug\netcoreapp2.1\AllegroSearchServic
 C:\Allegro\AllegroSearchService.Data\obj\Debug\netcoreapp2.1\AllegroSearchService.Data.csproj.CoreCompileInputs.cache
 C:\Allegro\AllegroSearchService.Data\obj\Debug\netcoreapp2.1\AllegroSearchService.Data.dll
 C:\Allegro\AllegroSearchService.Data\obj\Debug\netcoreapp2.1\AllegroSearchService.Data.pdb
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.deps.json
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.runtimeconfig.json
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.runtimeconfig.dev.json
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.dll
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.pdb
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\obj\Debug\netcoreapp2.1\AllegroSearchService.Data.AssemblyInfoInputs.cache
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\obj\Debug\netcoreapp2.1\AllegroSearchService.Data.AssemblyInfo.cs
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\obj\Debug\netcoreapp2.1\AllegroSearchService.Data.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\obj\Debug\netcoreapp2.1\AllegroSearchService.Data.dll
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\obj\Debug\netcoreapp2.1\AllegroSearchService.Data.pdb
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Data\obj\Debug\netcoreapp2.1\AllegroSearchService.Data.genruntimeconfig.cache

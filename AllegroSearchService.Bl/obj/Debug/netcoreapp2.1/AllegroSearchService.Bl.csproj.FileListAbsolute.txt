@@ -26,3 +26,17 @@ C:\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.
 C:\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.csproj.CopyComplete
 C:\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.dll
 C:\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.pdb
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Bl.deps.json
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Bl.dll
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Bl.pdb
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.dll
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.dll
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Common.pdb
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.pdb
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.csprojAssemblyReference.cache
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.AssemblyInfoInputs.cache
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.AssemblyInfo.cs
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.csproj.CopyComplete
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.dll
+C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Bl\obj\Debug\netcoreapp2.1\AllegroSearchService.Bl.pdb

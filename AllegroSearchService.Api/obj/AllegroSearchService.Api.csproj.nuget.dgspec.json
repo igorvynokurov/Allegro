@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Allegro\\AllegroSearchService.Api\\AllegroSearchService.Api.csproj": {}
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Api\\AllegroSearchService.Api.csproj": {}
   },
   "projects": {
-    "C:\\Allegro\\AllegroSearchService.Api\\AllegroSearchService.Api.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Api\\AllegroSearchService.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.Api\\AllegroSearchService.Api.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Api\\AllegroSearchService.Api.csproj",
         "projectName": "AllegroSearchService.Api",
-        "projectPath": "C:\\Allegro\\AllegroSearchService.Api\\AllegroSearchService.Api.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\AllegroSearchService.Api\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Api\\AllegroSearchService.Api.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,25 +22,25 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj"
               },
-              "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj"
               },
-              "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj"
               },
-              "C:\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj": {
-                "projectPath": "C:\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj"
               },
-              "C:\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj": {
-                "projectPath": "C:\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj"
               }
             }
           }
@@ -118,20 +115,17 @@
         }
       }
     },
-    "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj",
         "projectName": "AllegroSearchService.Bl",
-        "projectPath": "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\AllegroSearchService.Bl\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -139,16 +133,16 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj"
               },
-              "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj"
               }
             }
           }
@@ -187,20 +181,17 @@
         }
       }
     },
-    "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
         "projectName": "AllegroSearchService.Common",
-        "projectPath": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\AllegroSearchService.Common\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -208,7 +199,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
@@ -245,20 +236,17 @@
         }
       }
     },
-    "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
         "projectName": "AllegroSearchService.Data",
-        "projectPath": "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\AllegroSearchService.Data\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -266,7 +254,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
@@ -323,20 +311,17 @@
         }
       }
     },
-    "C:\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj",
         "projectName": "KioskBrains.Clients.AllegroPl",
-        "projectPath": "C:\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\KioskBrains.Clients.AllegroPl\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.AllegroPl\\KioskBrains.Clients.AllegroPl.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.AllegroPl\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -344,13 +329,13 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj": {
-                "projectPath": "C:\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj"
               }
             }
           }
@@ -409,20 +394,17 @@
         }
       }
     },
-    "C:\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj",
         "projectName": "KioskBrains.Clients.YandexTranslate",
-        "projectPath": "C:\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\KioskBrains.Clients.YandexTranslate\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.YandexTranslate\\KioskBrains.Clients.YandexTranslate.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.YandexTranslate\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -430,16 +412,16 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj"
               },
-              "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj"
               }
             }
           }
@@ -462,6 +444,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[10.0.2, )"
             }
           },
           "imports": [

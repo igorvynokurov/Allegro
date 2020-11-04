@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllegroSearchService.Data",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllegroSearchService.Bl", "AllegroSearchService.Bl\AllegroSearchService.Bl.csproj", "{748ECDA6-A4F4-497F-8716-9935670E803C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllegroSearchService.LoadTranslations", "AllegroSearchService.LoadTranslations\AllegroSearchService.LoadTranslations.csproj", "{E8EA6A7E-9484-49EA-8A45-854BA5BC68F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllegroSearchService.LoadTranslations", "AllegroSearchService.LoadTranslations\AllegroSearchService.LoadTranslations.csproj", "{E8EA6A7E-9484-49EA-8A45-854BA5BC68F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {}
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {}
   },
   "projects": {
-    "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
         "projectName": "AllegroSearchService.Data",
-        "projectPath": "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\AllegroSearchService.Data\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
