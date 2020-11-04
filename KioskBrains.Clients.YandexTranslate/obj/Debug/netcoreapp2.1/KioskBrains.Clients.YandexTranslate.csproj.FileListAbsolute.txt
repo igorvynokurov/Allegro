@@ -22,3 +22,7 @@ C:\Allegro\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrai
 C:\Allegro\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.csproj.CopyComplete
 C:\Allegro\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.dll
 C:\Allegro\KioskBrains.Clients.YandexTranslate\obj\Debug\netcoreapp2.1\KioskBrains.Clients.YandexTranslate.pdb
+C:\Allegro\KioskBrains.Clients.YandexTranslate\bin\Debug\netcoreapp2.1\AllegroSearchService.Bl.dll
+C:\Allegro\KioskBrains.Clients.YandexTranslate\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.dll
+C:\Allegro\KioskBrains.Clients.YandexTranslate\bin\Debug\netcoreapp2.1\AllegroSearchService.Bl.pdb
+C:\Allegro\KioskBrains.Clients.YandexTranslate\bin\Debug\netcoreapp2.1\AllegroSearchService.Data.pdb

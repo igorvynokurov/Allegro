@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GeCCicc1NTKMNGWU+he20vk/rw3pjm6RQFEAhh3dS7vEiGZKnbMvk5b4KNUEcfHNodFbWM19RSMyCi+zc89Wyw==",
+  "dgSpecHash": "Y5gUkFtDdz5C9kaDILfcuHGnbqqqQSDCFt1Qj1NK2S5MdUwhcLYFJmTimIYulyYSyoYchAtsFD/N6T6VYNkm8A==",
   "success": true,
   "projectFilePath": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
   "expectedPackageFiles": [
@@ -10,8 +10,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.dotnethostresolver\\2.1.0\\microsoft.netcore.dotnethostresolver.2.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\2.1.0\\microsoft.netcore.targets.2.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

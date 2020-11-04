@@ -1,0 +1,3 @@
+C:\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.csprojAssemblyReference.cache
+C:\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.AssemblyInfoInputs.cache
+C:\Allegro\AllegroSearchService.LoadTranslations\obj\Debug\netcoreapp3.1\AllegroSearchService.LoadTranslations.AssemblyInfo.cs
