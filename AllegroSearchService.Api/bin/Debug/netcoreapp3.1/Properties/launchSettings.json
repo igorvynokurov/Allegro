@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/search?limit=1&categoryId=5&phrase=audi",
+      "launchUrl": "api/search?limit=1&categoryId=5&phrase=audi&searchToken=sfdfjiojaa5345zfhsery7JHG",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "WebApplication1": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/search?limit=1&categoryId=5&phrase=audi",
+      "launchUrl": "api/search?limit=1&categoryId=5&phrase=audi&searchToken=sfdfjiojaa5345zfhsery7JHG",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
