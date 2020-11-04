@@ -58,6 +58,7 @@ namespace KioskBrains.Clients.AllegroPl
         #region Search
 
         private const int MaxPageSize = 10;
+        private const int MaxDescriptionLength = 250;
 
         public async Task<SearchOffersResponse> SearchOffersAsync(
             string phrase,
@@ -206,7 +207,7 @@ namespace KioskBrains.Clients.AllegroPl
                 var state = o.Parameters.FirstOrDefault(x => x.Name[Languages.PolishCode].ToLower() == "stan");
                 if (state != null)
                 {
-                    o.State = RestClient.StatesByNames.ContainsKey(state.Value[Languages.PolishCode].ToLower()) ? RestClient.StatesByNames[state.Value[Languages.PolishCode].ToLower()] : o.State;
+                    o.State = RestClient.StatesByNames.ContainsKey(state.Value[Languages.PolishCode].ToLower()) ? RestClient.StatesByNames[state.Value[Languages.PolishCode].ToLower()] : OfferStateEnum.New;
                 }
                 o.Name[Languages.RussianCode] = GetSafeValFromDictionary(dict, yandexDict, o.Name[Languages.PolishCode]);
                 o.Description[Languages.RussianCode] = GetSafeValFromDictionary(dict, yandexDict, o.Description[Languages.PolishCode]);
@@ -539,7 +540,7 @@ namespace KioskBrains.Clients.AllegroPl
                 .Replace("\n ", "\n").Replace("&amp;", "&")
                 .Trim();
 
-            return html.Length > 450 ? html.Substring(0, 447) + "..." : html;
+            return html.Length > MaxDescriptionLength ? html.Substring(0, MaxDescriptionLength - 3) + "..." : html;
         }
 
         #endregion

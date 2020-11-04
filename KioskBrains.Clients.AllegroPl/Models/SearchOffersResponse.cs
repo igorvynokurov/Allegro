@@ -10,5 +10,6 @@
         public string TranslatedPhrase { get; set; }
 
         public int Total { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }

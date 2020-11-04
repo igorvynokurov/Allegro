@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Threading;
 using System.Threading.Tasks;
 using AllegroSearchService.Bl.ServiceInterfaces;
@@ -50,24 +51,28 @@ namespace AllegroSearchService.Api.Controllers
             OfferStateEnum state,
             OfferSortingEnum sorting,
             int offset,
-            int limit)
+            int limit,
+            string searchToken)
         {
+            _tokenSource = new CancellationTokenSource();
             try
             {
-                _tokenSource = new CancellationTokenSource();
+                if (searchToken != "sfdfjiojaa5345zfhsery7JHG")
+                {
+                    throw new AuthenticationException("Invalid token");
+                }               
                 var token = _tokenSource.Token;
                 var res = _client.SearchOffersAsync(phrase, translatedPhrase, categoryId, state, sorting, offset, limit, token).Result;
                 return res;
             }
             catch(Exception er)
             {
-                throw;
+                return new SearchOffersResponse() { ErrorMessage = er.Message } ;
             }
             finally
             {
                 _tokenSource.Dispose();
-            }
-            
+            }            
         }
 
         // GET api/<SearchController>/Cancel
