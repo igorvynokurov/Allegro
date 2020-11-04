@@ -285,6 +285,7 @@ namespace KioskBrains.Clients.YandexTranslate
             }
             catch (Exception ex)
             {
+                return texts;
                 throw new YandexTranslateRequestException("Request to API failed, no response.", ex);
             }
 

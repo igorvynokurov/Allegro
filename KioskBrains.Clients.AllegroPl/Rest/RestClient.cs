@@ -27,6 +27,7 @@ namespace KioskBrains.Clients.AllegroPl.Rest
         {
             {"nowy", OfferStateEnum.New },
             {"używany", OfferStateEnum.Used },
+            {"odzyskany",  OfferStateEnum.Recovered}
         };
         public RestClient(string clientId, string clientSecret, ITokenService tokenService)
         {
