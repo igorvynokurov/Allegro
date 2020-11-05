@@ -299,7 +299,19 @@ namespace KioskBrains.Clients.AllegroPl.Rest
             return response;
         }
 
-        public OfferExtraData GetExtraDataPoland(string id)
+        public OfferExtraData GetExtraDataPolandTest(string id)
+        {
+            Thread.Sleep(5000);
+            return new OfferExtraData() { Description = new MultiLanguageString()
+                {
+                    [Languages.PolishCode] = "",
+                    [Languages.RussianCode] = ""
+                },
+                Parameters = new List<OfferParameter>()
+            };
+        }
+
+        public OfferExtraData GetExtraDataInit(string id)
         {
             try
             {

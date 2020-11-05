@@ -93,15 +93,7 @@ namespace KioskBrains.Clients.AllegroPl
                 {
                     translatedPhrase = phrase;
                 }
-            }
-
-            // WORKAROUND! since WebAPI with attributes was disabled:
-            // - we can't use 'All States' filter at the moment
-            // - 'Used' is set instead of 'All States'
-            /*if (state == OfferStateEnum.All)
-            {
-                state = OfferStateEnum.Used;
-            }*/
+            }            
 
             // search for offers
             var apiResponse = await _restClient.SearchOffersAsync(translatedPhrase, categoryId, state, sorting, offset, limit, cancellationToken);
@@ -156,20 +148,24 @@ namespace KioskBrains.Clients.AllegroPl
             foreach (var o in offers)
             {
                 //Thread.Sleep(10);
-                taskList.Add(Task.Run(async () =>                
-                    await SetOfferExtraDataAsync(o, cancellationToken)               
+                taskList.Add(Task.Run(() =>                
+                     SetOfferExtraData(o, cancellationToken)               
                 ));
             }
             
-            var stateAndDeliveryOptionsTask = Task.Run(
+            /*var stateAndDeliveryOptionsTask = Task.Run(
                 () => RequestOfferStatesAndDeliveryOptionsAsync(offers, state, cancellationToken),
-                cancellationToken);
+                cancellationToken);*/
 
-            AddNamesTotranslate(offers);
-            taskList.Add(stateAndDeliveryOptionsTask);            
+            
+            //taskList.Add(stateAndDeliveryOptionsTask);            
 
             await Task.WhenAll(taskList);
-            await ApplyTranslations(offers, phrase, translatedPhrase, cancellationToken);
+            if (_settings.IsTranslationEnabled)
+            {
+                AddNamesToTranslate(offers);
+                await ApplyTranslations(offers, phrase, translatedPhrase, cancellationToken);
+            }
 
             return new SearchOffersResponse()
             {
@@ -204,7 +200,7 @@ namespace KioskBrains.Clients.AllegroPl
 
             foreach (var o in offers)
             {
-                var state = o.Parameters.FirstOrDefault(x => x.Name[Languages.PolishCode].ToLower() == "stan");
+                var state = o.Parameters.FirstOrDefault(x => x.Name[Languages.PolishCode].ToLower() == StateAttributeName.ToLower());
                 if (state != null)
                 {
                     o.State = RestClient.StatesByNames.ContainsKey(state.Value[Languages.PolishCode].ToLower()) ? RestClient.StatesByNames[state.Value[Languages.PolishCode].ToLower()] : OfferStateEnum.New;
@@ -338,7 +334,7 @@ namespace KioskBrains.Clients.AllegroPl
             return shipmentId < 100 || shipmentId > 200;
         }
 
-        private void AddNamesTotranslate(Offer[] offers)
+        private void AddNamesToTranslate(Offer[] offers)
         {
             try
             { 
@@ -359,71 +355,30 @@ namespace KioskBrains.Clients.AllegroPl
             {
                 _logger.LogError("Offer names translation failed.", ex);
             }
-        }
-
-        private async Task<string[]> TranslateArrAsync(string[] texts, CancellationToken cancellationToken)
-        {
-            try
-            {
-                var translatedTexts = await _yandexTranslateClient.TranslateAsync(
-                    texts,
-                    Languages.PolishCode,
-                    Languages.RussianCode,
-                    cancellationToken);
-
-                return translatedTexts;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError("Offer names translation failed.", ex);
-            }
-            return new string[0];
-        }
-
-        private async Task<string> TranslateLocalAsync(string text, CancellationToken cancellationToken)
-        {
-            try
-            {
-                var arr = new List<string>();                
-                var x = await _translateService.GetTranslatedText(text,
-                Languages.PolishCode,
-                Languages.RussianCode);
-                if (String.IsNullOrEmpty(x))
-                {
-                    x = await _yandexTranslateClient.TranslateAsync(
-                        text,
-                        Languages.PolishCode,
-                        Languages.RussianCode,
-                        cancellationToken);
-                        //await _translateService.AddRecord(text, x, Languages.PolishCode, Languages.RussianCode, Guid.NewGuid());                            
-                }
-                return x;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError("Offer names translation failed.", ex);
-                return "";
-            }            
-        }
+        }        
         #endregion
 
         #region Description
 
-        private async Task SetOfferExtraDataAsync(Offer offer, CancellationToken cancellationToken)
+        private void SetOfferExtraData(Offer offer, CancellationToken cancellationToken)
         {
             OfferExtraData data = null;
             try
             {
-                data = await Task<OfferExtraData>.Run(() => _restClient.GetExtraDataPoland(offer.Id));
+                data = _restClient.GetExtraDataInit(offer.Id);
                 data.Description[Languages.RussianCode] =
                 data.Description[Languages.PolishCode] = ConvertDescriptionHtmlToText(data.Description[Languages.PolishCode]);
                 offer.Description = data.Description;
                 offer.Parameters = data.Parameters;
+                var paramsStrPl = String.Join("; ", data.Parameters.Select(x => $"{x.Name[Languages.PolishCode]}: {x.Value[Languages.PolishCode]}"));
+                var paramsStrRu = String.Join("; ", data.Parameters.Select(x => $"{x.Name[Languages.RussianCode]}: {x.Value[Languages.RussianCode]}"));
+                offer.Description[Languages.PolishCode] = paramsStrPl + ". " + offer.Description[Languages.PolishCode];
+                offer.Description[Languages.RussianCode] = paramsStrPl + ". " + offer.Description[Languages.RussianCode];
             }
             catch (Exception er)
             {
                 _logger.LogError($"Offer '{offer.Id}' get extradata failed.", er);
-                return;
+                //throw new AllegroPlRequestException("Error get page data");
             }
             if (_settings.IsTranslationEnabled)
             {
@@ -451,30 +406,7 @@ namespace KioskBrains.Clients.AllegroPl
                     }
                 }
             }
-        }
-
-        private async Task TranslateExtraData(Offer offer, OfferExtraData data, CancellationToken cancellationToken)
-        {            
-            try
-            {
-                var ruDescription = await TranslateLocalAsync(
-                    data.Description[Languages.PolishCode],
-                    cancellationToken);
-                data.Description[Languages.RussianCode] = ruDescription;                
-                foreach (var p in data.Parameters)
-                {
-                    p.Name[Languages.RussianCode] = await TranslateLocalAsync(p.Name[Languages.PolishCode], cancellationToken);
-                    p.Value[Languages.RussianCode] = await TranslateLocalAsync(p.Value[Languages.PolishCode], cancellationToken);
-                }                
-                offer.Description = data.Description;
-                offer.Parameters = data.Parameters;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Offer '{offer.Id}' description translation failed.", ex);
-            }            
-        }
-
+        }        
         #endregion
 
         #region HtmlToText

@@ -274,3 +274,13 @@ C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp
 C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\Razor\Views\Translate\Index.cshtml.g.cs
 C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.RazorTargetAssemblyInfo.cs
 C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.Views.pdb
+C:\Allegro\AllegroSearchService.Api\bin\Debug\netcoreapp3.1\AllegroSearchService.Api.Views.dll
+C:\Allegro\AllegroSearchService.Api\bin\Debug\netcoreapp3.1\AllegroSearchService.Api.Views.pdb
+C:\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.RazorAssemblyInfo.cache
+C:\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.RazorAssemblyInfo.cs
+C:\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.TagHelpers.input.cache
+C:\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.TagHelpers.output.cache
+C:\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.RazorCoreGenerate.cache
+C:\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\Razor\Views\Translate\Index.cshtml.g.cs
+C:\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.RazorTargetAssemblyInfo.cs
+C:\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.Views.pdb
