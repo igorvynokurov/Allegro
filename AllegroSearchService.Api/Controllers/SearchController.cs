@@ -67,7 +67,7 @@ namespace AllegroSearchService.Api.Controllers
             }
             catch(Exception er)
             {
-                return new SearchOffersResponse() { ErrorMessage = er.Message } ;
+                throw;
             }
             finally
             {
