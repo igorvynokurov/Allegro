@@ -52,6 +52,7 @@ namespace AllegroSearchService.Api.Controllers
             OfferSortingEnum sorting,
             int offset,
             int limit,
+            int? processTopCnt,
             string searchToken)
         {
             _tokenSource = new CancellationTokenSource();
@@ -62,7 +63,7 @@ namespace AllegroSearchService.Api.Controllers
                     throw new AuthenticationException("Invalid token");
                 }               
                 var token = _tokenSource.Token;
-                var res = _client.SearchOffersAsync(phrase, translatedPhrase, categoryId, state, sorting, offset, limit, token).Result;
+                var res = _client.SearchOffersAsync(phrase, translatedPhrase, categoryId, state, sorting, offset, limit, processTopCnt, token).Result;
                 return res;
             }
             catch(Exception er)
@@ -73,6 +74,35 @@ namespace AllegroSearchService.Api.Controllers
             {
                 _tokenSource.Dispose();
             }            
+        }
+
+        [HttpGet("GetOffersInfo")]
+        public List<Offer> GetOffersInfo(string offers, string searchToken)
+            
+        {
+            _tokenSource = new CancellationTokenSource();
+            try
+            {
+                if (searchToken != "sfdfjiojaa5345zfhsery7JHG")
+                {
+                    throw new AuthenticationException("Invalid token");
+                }
+                if (String.IsNullOrEmpty(offers))
+                {
+                    return new List<Offer>();
+                }
+                var token = _tokenSource.Token;
+                var res = _client.GetOffersInfo(offers.Split(','), token).Result;
+                return res;
+            }
+            catch (Exception er)
+            {
+                throw;
+            }
+            finally
+            {
+                _tokenSource.Dispose();
+            }
         }
 
         // GET api/<SearchController>/Cancel

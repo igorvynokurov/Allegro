@@ -60,6 +60,53 @@ namespace KioskBrains.Clients.AllegroPl
         private const int MaxPageSize = 10;
         private const int MaxDescriptionLength = 250;
 
+        public async Task<List<Offer>> GetOffersInfo(IList<string> idsList, CancellationToken cancellationToken)
+        {
+            var offers = idsList.Select(x => new Offer()
+            {
+                Id = x,
+                Name = new MultiLanguageString()
+                {
+                    [Languages.PolishCode] = "",
+                    [Languages.RussianCode] = "",
+                },
+                Description = new MultiLanguageString()
+                {
+                    [Languages.PolishCode] = "",
+                    [Languages.RussianCode] = "",
+                },
+                Parameters = new List<OfferParameter>()
+
+            }).ToArray();
+            var taskList = new List<Task>();
+            foreach (var o in offers)
+            {
+                //Thread.Sleep(10);
+                taskList.Add(Task.Run(() =>
+                     SetOfferExtraData(o, cancellationToken)
+                ));
+            }
+            await Task.WhenAll(taskList);
+            if (_settings.IsTranslationEnabled)
+            {
+                //AddNamesToTranslate(offers);
+                await ApplyTranslations(offers, null, null, cancellationToken);
+            }
+
+
+            foreach (var offer in offers)
+            {
+                var paramsStrPl = String.Join("; ", offer.Parameters.Select(x => $"{x.Name[Languages.PolishCode]}: {x.Value[Languages.PolishCode]}"));
+                var paramsStrRu = String.Join("; ", offer.Parameters.Select(x => $"{x.Name[Languages.RussianCode]}: {x.Value[Languages.RussianCode]}"));
+
+
+                offer.Description[Languages.PolishCode] = paramsStrPl + (paramsStrPl.Any() ? ". " : "") + offer.Description[Languages.PolishCode];
+                offer.Description[Languages.RussianCode] = paramsStrRu + (paramsStrRu.Any() ? ". " : "") + offer.Description[Languages.RussianCode];
+                offer.Parameters = null;
+            }
+            return offers.ToList();
+        }
+
         public async Task<SearchOffersResponse> SearchOffersAsync(
             string phrase,
             string translatedPhrase,
@@ -68,6 +115,7 @@ namespace KioskBrains.Clients.AllegroPl
             OfferSortingEnum sorting,
             int offset,
             int limit,
+            int? processTopCnt,
             CancellationToken cancellationToken)
         {
             if (limit > MaxPageSize)
@@ -123,10 +171,17 @@ namespace KioskBrains.Clients.AllegroPl
                     Name = new MultiLanguageString()
                     {
                         [Languages.PolishCode] = x.Name ?? "",
+                        [Languages.RussianCode] = x.Name ?? "",
+                    },
+                    Description = new MultiLanguageString()
+                    {
+                        [Languages.PolishCode] = "",
+                        [Languages.RussianCode] = "",
                     },
                     Price = x.SellingMode?.GetMaxPrice()?.Amount ?? 0,
                     PriceCurrencyCode = x.SellingMode?.GetMaxPrice()?.Currency ?? "PLN",
                     Images = x.Images,
+                    Parameters = new List<OfferParameter>(),
                     // WORKAROUND! since WebAPI with attributes was disabled:
                     // - state should be non-All here
                     // - delivery options are set by REST API delivery/lowestPrice
@@ -145,26 +200,31 @@ namespace KioskBrains.Clients.AllegroPl
 
             List<Task> taskList = new List<Task>();
 
-            foreach (var o in offers)
+
+            var take = !processTopCnt.HasValue ? limit : limit > processTopCnt.Value ? processTopCnt.Value : limit;
+            foreach (var o in offers.Take(take))
             {
                 //Thread.Sleep(10);
                 taskList.Add(Task.Run(() =>                
                      SetOfferExtraData(o, cancellationToken)               
                 ));
-            }
-            
-            /*var stateAndDeliveryOptionsTask = Task.Run(
-                () => RequestOfferStatesAndDeliveryOptionsAsync(offers, state, cancellationToken),
-                cancellationToken);*/
-
-            
-            //taskList.Add(stateAndDeliveryOptionsTask);            
+            } 
 
             await Task.WhenAll(taskList);
             if (_settings.IsTranslationEnabled)
             {
                 AddNamesToTranslate(offers);
                 await ApplyTranslations(offers, phrase, translatedPhrase, cancellationToken);
+            }
+
+
+            foreach (var offer in offers)
+            {
+                var paramsStrPl = String.Join("; ", offer.Parameters.Select(x => $"{x.Name[Languages.PolishCode]}: {x.Value[Languages.PolishCode]}"));
+                var paramsStrRu = String.Join("; ", offer.Parameters.Select(x => $"{x.Name[Languages.RussianCode]}: {x.Value[Languages.RussianCode]}"));
+                offer.Description[Languages.PolishCode] = paramsStrPl + (paramsStrPl.Any() ?  ". " : "") + offer.Description[Languages.PolishCode];
+                offer.Description[Languages.RussianCode] = paramsStrRu + (paramsStrRu.Any() ? ". " : "") + offer.Description[Languages.RussianCode];
+                offer.Parameters = null;
             }
 
             return new SearchOffersResponse()
@@ -191,15 +251,15 @@ namespace KioskBrains.Clients.AllegroPl
                              select new { Key = f, Value = y };
             var yandexDict = yandexList.ToDictionary(x => x.Key.ToLower(), x => x.Value);
 
-            if (!yandexDict.ContainsKey(sourceText.ToLower()))
+            if (destText != null && !yandexDict.ContainsKey(destText.ToLower()))
             {
-                yandexDict.Add(sourceText.ToLower(), destText);
+                yandexDict.Add(destText.ToLower(), sourceText);
             }
 
             await _translateService.AddRecords(yandexDict, Languages.PolishCode, Languages.RussianCode, Guid.NewGuid());
 
             foreach (var o in offers)
-            {
+            {               
                 var state = o.Parameters.FirstOrDefault(x => x.Name[Languages.PolishCode].ToLower() == StateAttributeName.ToLower());
                 if (state != null)
                 {
@@ -369,11 +429,7 @@ namespace KioskBrains.Clients.AllegroPl
                 data.Description[Languages.RussianCode] =
                 data.Description[Languages.PolishCode] = ConvertDescriptionHtmlToText(data.Description[Languages.PolishCode]);
                 offer.Description = data.Description;
-                offer.Parameters = data.Parameters;
-                var paramsStrPl = String.Join("; ", data.Parameters.Select(x => $"{x.Name[Languages.PolishCode]}: {x.Value[Languages.PolishCode]}"));
-                var paramsStrRu = String.Join("; ", data.Parameters.Select(x => $"{x.Name[Languages.RussianCode]}: {x.Value[Languages.RussianCode]}"));
-                offer.Description[Languages.PolishCode] = paramsStrPl + ". " + offer.Description[Languages.PolishCode];
-                offer.Description[Languages.RussianCode] = paramsStrPl + ". " + offer.Description[Languages.RussianCode];
+                offer.Parameters = data.Parameters;                
             }
             catch (Exception er)
             {
