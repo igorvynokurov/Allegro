@@ -274,3 +274,6 @@ C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp
 C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\Razor\Views\Translate\Index.cshtml.g.cs
 C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.RazorTargetAssemblyInfo.cs
 C:\Users\DELL\Source\Repos\Allegro\AllegroSearchService.Api\obj\Debug\netcoreapp3.1\AllegroSearchService.Api.Views.pdb
+C:\Users\DELL\source\repos\Allegro\AllegroSearchService.Api\bin\Debug\netcoreapp3.1\App.config
+C:\Users\DELL\source\repos\Allegro\AllegroSearchService.Api\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\DELL\source\repos\Allegro\AllegroSearchService.Api\bin\Debug\netcoreapp3.1\AllegroSearchService.Api.dll.config

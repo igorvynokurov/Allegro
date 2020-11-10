@@ -1,23 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj": {}
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj": {}
   },
   "projects": {
-    "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj",
         "projectName": "AllegroSearchService.Bl",
-        "projectPath": "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\AllegroSearchService.Bl\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\source\\repos\\Allegro\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,16 +23,19 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2020\\": {},
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2020\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/nuget": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj"
               },
-              "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj"
               }
             }
           }
@@ -73,20 +74,18 @@
         }
       }
     },
-    "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
         "projectName": "AllegroSearchService.Common",
-        "projectPath": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\AllegroSearchService.Common\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\source\\repos\\Allegro\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -94,7 +93,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2020\\": {},
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2020\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/nuget": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
@@ -131,20 +133,18 @@
         }
       }
     },
-    "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
         "projectName": "AllegroSearchService.Data",
-        "projectPath": "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\AllegroSearchService.Data\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\source\\repos\\Allegro\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -152,7 +152,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2020\\": {},
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2020\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/nuget": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
@@ -209,20 +212,18 @@
         }
       }
     },
-    "C:\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj": {
+    "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj",
         "projectName": "AllegroSearchService.LoadTranslations",
-        "projectPath": "C:\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Allegro\\AllegroSearchService.LoadTranslations\\obj\\",
+        "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.LoadTranslations\\AllegroSearchService.LoadTranslations.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.LoadTranslations\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\source\\repos\\Allegro\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -230,19 +231,22 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://www.nuget.org/api/v2/": {}
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2020\\": {},
+          "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2020\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/nuget": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Bl\\AllegroSearchService.Bl.csproj"
               },
-              "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Common\\AllegroSearchService.Common.csproj"
               },
-              "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
-                "projectPath": "C:\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj"
+              "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj": {
+                "projectPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\AllegroSearchService.Data\\AllegroSearchService.Data.csproj"
               }
             }
           }

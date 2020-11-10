@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @(Html.Kendo().Grid<TestKendo.Models.Employee>()
+    .Name("EmpGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.EmployeeID).Width(15).Title("EmployeeID").Filterable(false);
+        columns.Bound(p => p.FirstName).Title("FirstName").Width(30).Filterable(false);
+        columns.Bound(p => p.LastName).Title("LastName").Width(15).Filterable(false);
+    })
+
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .ServerOperation(false)
+        .Read(read => read.Action("EmployeeList", "EmployeeController"))
+        )
+        )
+</div>

@@ -5981,6 +5981,7 @@
       "outputPath": "C:\\Users\\DELL\\source\\repos\\Allegro\\KioskBrains.Clients.YandexTranslate\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+        "C:\\Users\\DELL\\source\\repos\\Allegro\\NuGet.Config",
         "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5989,7 +5990,10 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2020\\": {},
+        "C:\\Program Files (x86)\\Progress\\Telerik UI for ASP.NET Core R3 2020\\wrappers\\aspnetcore\\Binaries\\AspNet.Core": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.telerik.com/nuget": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
