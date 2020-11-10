@@ -8,14 +8,9 @@
     ".NETCoreApp,Version=v2.1": {
       "KioskBrains.Clients.AllegroPl/1.0.0": {
         "dependencies": {
-          "AllegroSearchService.Bl": "1.0.0",
-          "AllegroSearchService.Data": "1.0.0",
-          "HtmlAgilityPack": "1.11.25",
+          "HtmlAgilityPack": "1.11.26",
           "HtmlAgilityPack.CssSelectors.NetCore": "1.2.1",
           "KioskBrains.Clients.YandexTranslate": "1.0.0",
-          "Microsoft.Extensions.Logging": "3.1.9",
-          "Microsoft.Extensions.Options": "3.1.9",
-          "Newtonsoft.Json": "11.0.2",
           "System.ServiceModel.Duplex": "4.4.4",
           "System.ServiceModel.Http": "4.4.4",
           "System.ServiceModel.NetTcp": "4.4.4",
@@ -25,17 +20,17 @@
           "KioskBrains.Clients.AllegroPl.dll": {}
         }
       },
-      "HtmlAgilityPack/1.11.25": {
+      "HtmlAgilityPack/1.11.26": {
         "runtime": {
           "lib/netstandard2.0/HtmlAgilityPack.dll": {
-            "assemblyVersion": "1.11.25.0",
-            "fileVersion": "1.11.25.0"
+            "assemblyVersion": "1.11.26.0",
+            "fileVersion": "1.11.26.0"
           }
         }
       },
       "HtmlAgilityPack.CssSelectors.NetCore/1.2.1": {
         "dependencies": {
-          "HtmlAgilityPack": "1.11.25"
+          "HtmlAgilityPack": "1.11.26"
         },
         "runtime": {
           "lib/netstandard2.0/HtmlAgilityPack.CssSelectors.NetCore.dll": {
@@ -292,7 +287,7 @@
       "Microsoft.IdentityModel.JsonWebTokens/5.5.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Tokens": "5.5.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "10.0.2"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
@@ -324,7 +319,7 @@
       "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.5.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols": "5.5.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "10.0.2",
           "System.IdentityModel.Tokens.Jwt": "5.5.0"
         },
         "runtime": {
@@ -337,7 +332,7 @@
       "Microsoft.IdentityModel.Tokens/5.5.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Logging": "5.5.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "10.0.2",
           "System.Security.Cryptography.Cng": "4.5.0"
         },
         "runtime": {
@@ -353,11 +348,18 @@
           "System.Security.Principal.Windows": "4.5.0"
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/10.0.2": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Runtime.Serialization.Formatters": "4.3.0",
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Xml.XmlDocument": "4.3.0"
+        },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.2.21924"
+          "lib/netstandard1.3/Newtonsoft.Json.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.2.20802"
           }
         }
       },
@@ -529,7 +531,7 @@
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "5.5.0",
           "Microsoft.IdentityModel.Tokens": "5.5.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "10.0.2"
         },
         "runtime": {
           "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {
@@ -1060,7 +1062,7 @@
           "AllegroSearchService.Bl": "1.0.0",
           "AllegroSearchService.Common": "1.0.0",
           "Microsoft.Extensions.Options": "3.1.9",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "10.0.2"
         },
         "runtime": {
           "KioskBrains.Clients.YandexTranslate.dll": {}
@@ -1074,12 +1076,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "HtmlAgilityPack/1.11.25": {
+    "HtmlAgilityPack/1.11.26": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UO02+QzWpKDhz2XApSZ74S+9fylNrK9npqvO4NgtW9LiFLHVRqXQmdI+1tn7JRzGnATkCCbtyIeqbJZl3pSRJQ==",
-      "path": "htmlagilitypack/1.11.25",
-      "hashPath": "htmlagilitypack.1.11.25.nupkg.sha512"
+      "sha512": "sha512-e0L7s+cj4MapB8hpL8sakwTSwX/cngBCcNfCT8/2v1IRXoly/hrt3FjkzGmgsjMHlO50whSGmRbDhEiUudd3tQ==",
+      "path": "htmlagilitypack/1.11.26",
+      "hashPath": "htmlagilitypack.1.11.26.nupkg.sha512"
     },
     "HtmlAgilityPack.CssSelectors.NetCore/1.2.1": {
       "type": "package",
@@ -1277,12 +1279,12 @@
       "path": "microsoft.win32.registry/4.5.0",
       "hashPath": "microsoft.win32.registry.4.5.0.nupkg.sha512"
     },
-    "Newtonsoft.Json/11.0.2": {
+    "Newtonsoft.Json/10.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
-      "path": "newtonsoft.json/11.0.2",
-      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+      "sha512": "sha512-iwElSU2IXmwGvytJsezyDML2ZWDkG2JzTYzlU/BNlmzMdlmRvbnwITsGGY74gwVEpDli1UdOLkMT7/3jxWvXzA==",
+      "path": "newtonsoft.json/10.0.2",
+      "hashPath": "newtonsoft.json.10.0.2.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",
